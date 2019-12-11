@@ -9,8 +9,6 @@ import java.sql.SQLException;
 public class Database {
     private static Dao<Books, String> ISBNDao = null;
 
-    public static final Books EXAMPLE_BOOKs = new Books("ISBN", "name", "press", "author", 0, 0.00);
-
     /**
      * Init Database and Table Books if not exist.
      * If an exception occurs, Print stack trace and exit with -2.

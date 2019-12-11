@@ -9,7 +9,7 @@ public class Main {
         }
 
         Database.initDatabase();
-        Database.insertBooks(Database.EXAMPLE_BOOKs);
+        Database.insertBooks(Books.EXAMPLE_BOOKs);
 
         System.out.print("Please input ISBN you want to insert: ");
         String ISBN = scanner.nextLine();

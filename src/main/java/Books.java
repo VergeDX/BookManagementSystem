@@ -9,6 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Books {
+    public static final Books EXAMPLE_BOOKs = new Books("ISBN", "name", "press", "author", 0, 0.00);
+
     @DatabaseField(id = true)
     private String ISBN;
 
