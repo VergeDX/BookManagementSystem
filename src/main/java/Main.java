@@ -1,5 +1,3 @@
-import Database.Database;
-
 import java.util.Scanner;
 
 public class Main {
@@ -11,13 +9,12 @@ public class Main {
         }
 
         Database.initDatabase();
-        Database.insertTestData();
+        Database.insertBooks(Database.EXAMPLE_BOOKs);
 
-        System.out.print("Please input ISBN: ");
+        System.out.print("Please input ISBN you want to insert: ");
         String ISBN = scanner.nextLine();
-        if (!Database.checkISBN(ISBN)) {
-            System.out.println("This ISBN is already exist.");
-            System.exit(-3);
+        if (Database.hasISBN(ISBN)) {
+            System.out.println("The ISBN already exist!");
         }
     }
 }
