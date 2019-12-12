@@ -52,6 +52,7 @@ public class Database {
      */
     public static boolean insertBooks(Books books) {
         if (hasISBN(books.getISBN())) {
+            System.out.println("This Books \"" + books.getName() + "\" in already in the database!");
             return false;
         } else {
             try {
@@ -76,6 +77,23 @@ public class Database {
             return BooksDao.queryForAll();
         } catch (SQLException e) {
             System.out.println("Exception in querying all books, message: " + e.getMessage());
+        }
+
+        throw new AssertionError();
+    }
+
+    /**
+     * Query a field in all Books.
+     *
+     * @param fieldName is one of "ISBN", "name", "press", "author", "inventory", "price".
+     * @param value     is this field's value ready to be query.
+     * @return a List<Books> contains all matched Books.
+     */
+    public static List<Books> queryBooks(String fieldName, String value) {
+        try {
+            return BooksDao.queryForEq(fieldName, value);
+        } catch (SQLException e) {
+            System.out.println("Exception in query " + fieldName + " field, message: " + e.getMessage());
         }
 
         throw new AssertionError();

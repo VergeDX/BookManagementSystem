@@ -27,4 +27,13 @@ public class Books {
     private int inventory;
     @DatabaseField
     private double price;
+
+    public String getAllInformation() {
+        return this.ISBN + " | "
+                + this.name + " | "
+                + this.press + " | "
+                + this.author + " | "
+                + this.inventory + " | "
+                + this.price;
+    }
 }
