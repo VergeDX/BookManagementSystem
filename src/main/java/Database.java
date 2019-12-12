@@ -7,7 +7,7 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 public class Database {
-    private static Dao<Books, String> ISBNDao = null;
+    private static Dao<Books, String> BooksDao = null;
 
     /**
      * Init Database and Table Books if not exist.
@@ -17,7 +17,7 @@ public class Database {
         try {
             ConnectionSource connectionSource = new JdbcConnectionSource("jdbc:sqlite:Books.db");
             TableUtils.createTableIfNotExists(connectionSource, Books.class);
-            ISBNDao = DaoManager.createDao(connectionSource, Books.class);
+            BooksDao = DaoManager.createDao(connectionSource, Books.class);
         } catch (SQLException e) {
             System.out.println("Exception in init database, Exiting...");
             System.out.println("Message: " + e.getMessage());
@@ -35,7 +35,7 @@ public class Database {
     public static boolean hasISBN(String ISBN) {
         Books resultBooks = null;
         try {
-            resultBooks = ISBNDao.queryForId(ISBN);
+            resultBooks = BooksDao.queryForId(ISBN);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,7 +54,7 @@ public class Database {
             return false;
         } else {
             try {
-                ISBNDao.create(books);
+                BooksDao.create(books);
             } catch (SQLException e) {
                 System.out.println("Exception in insert new Books, message: " + e.getMessage());
 
