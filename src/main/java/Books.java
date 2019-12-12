@@ -9,7 +9,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Books {
-    public static final Books EXAMPLE_BOOKs = new Books("ISBN", "name", "press", "author", 0, 0.00);
+    public static final Books EXAMPLE_BOOKs =
+            new Books("9787111213826",
+                    "JAVA 编程思想（第 4 版）",
+                    "机械工业 出版社",
+                    "[美]埃克尔",
+                    154,
+                    70.20);
 
     @DatabaseField(id = true)
     private String ISBN;

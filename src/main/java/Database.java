@@ -5,6 +5,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Database {
     private static Dao<Books, String> BooksDao = null;
@@ -63,5 +64,20 @@ public class Database {
         }
 
         return true;
+    }
+
+    /**
+     * Query for all books, and return a List<Books>.
+     *
+     * @return a list contains all Books.
+     */
+    public static List<Books> getAllBooks() {
+        try {
+            return BooksDao.queryForAll();
+        } catch (SQLException e) {
+            System.out.println("Exception in querying all books, message: " + e.getMessage());
+        }
+
+        throw new AssertionError();
     }
 }
