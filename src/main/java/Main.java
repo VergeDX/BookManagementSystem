@@ -9,6 +9,5 @@ public class Main {
         }
 
         Database.initDatabase();
-        Database.insertBooks(Books.EXAMPLE_BOOKs);
     }
 }

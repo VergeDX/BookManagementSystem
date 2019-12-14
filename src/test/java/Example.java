@@ -6,13 +6,21 @@ import java.util.Scanner;
 public class Example {
     public static final Scanner scanner = new Scanner(System.in);
 
+    public static final Books EXAMPLE_BOOKs =
+            new Books("9787111213826",
+                    "JAVA 编程思想（第 4 版）",
+                    "机械工业 出版社",
+                    "[美]埃克尔",
+                    154,
+                    70.20);
+
     public static void main(String[] args) {
         System.setProperty("com.j256.ormlite.logger.level", Log.Level.WARNING.toString());
 
         // Init database first!
         Database.initDatabase();
         System.out.println("Inserting Books \"Think in Java\"...");
-        Database.insertBooks(Books.EXAMPLE_BOOKs);
+        Database.insertBooks(EXAMPLE_BOOKs);
 
         // Insert Books
         System.out.print("Please input ISBN you want to insert: ");
@@ -27,7 +35,7 @@ public class Example {
         List<Books> allBooks = Database.getAllBooks();
         System.out.println("All Books information: ");
         for (Books books : allBooks) {
-            System.out.println(books.getAllInformation());
+            System.out.println(books.toString());
         }
 
         // Query for a Books
