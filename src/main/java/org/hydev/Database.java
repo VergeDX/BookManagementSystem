@@ -14,7 +14,7 @@ public class Database {
 
     public static void initDatabase() {
         try {
-            ConnectionSource connectionSource = new JdbcConnectionSource("jdbc:sqlite:org.hydev.Books.db");
+            ConnectionSource connectionSource = new JdbcConnectionSource("jdbc:sqlite:Books.db");
             TableUtils.createTableIfNotExists(connectionSource, Books.class);
             booksDao = DaoManager.createDao(connectionSource, Books.class);
         } catch (SQLException e) {

@@ -1,2 +1,2 @@
 # BookManagementSystem
-[WIP] BookManagementSystem
+BookManagementSystem
